@@ -1,1 +1,19 @@
-<p>services works!</p>
+<section id="services" class="services section">
+  <div class="content max-width-wrapper">
+    <p class="small-subtext">SERVICES</p>
+
+    <h2 class="section-title">
+      Choose the perfect clean for your unique space
+    </h2>
+
+    <div class="services-list">
+      <app-custom-swipper [swipperItems]="services">
+        <ng-template #itemTemplate let-service>
+          <app-service-card [service]="service" />
+        </ng-template>
+      </app-custom-swipper>
+    </div>
+
+    
+  </div>
+</section>
