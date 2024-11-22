@@ -1,1 +1,69 @@
-<p>footer works!</p>
+<!-- footer.component.html -->
+<footer class="footer bg-blue">
+  <div class="footer-content max-width-wrapper">
+    <!-- Main Title Section -->
+    <div class="footer-section">
+      <h2 class="footer-title">
+        Transforming Your Space<br />with Expert Cleaning.
+      </h2>
+      <div class="social-icons">
+        <a
+          href="https://wa.me/33563446777"
+          class="icon whatsapp"
+          aria-label="WhatsApp"
+        >
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+        </a>
+        <a
+          href="https://t.me/yourcompany"
+          class="icon telegram"
+          aria-label="Telegram"
+        >
+          <img src="assets/icons/telegram.svg" alt="Telegram" />
+        </a>
+        <a
+          href="mailto:contact@company.com"
+          class="icon gmail"
+          aria-label="Gmail"
+        >
+          <img src="assets/icons/gmail.svg" alt="Gmail" />
+        </a>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="footer-section">
+      <h3>About</h3>
+      <ul>
+        @for(item of navigation.about; track item) {
+        <li>
+          <a [href]="item.link">{{ item.title }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Social Links Section -->
+    <div class="footer-section">
+      <h3>Social Links</h3>
+      <ul>
+        @for(item of navigation.social; track item) {
+        <li>
+          <a [href]="item.link">{{ item.title }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p class="phone">{{ contactInfo.phone }}</p>
+      <p class="address">
+        {{ contactInfo.address }}<br />
+        {{ contactInfo.city }}
+      </p>
+      <p class="email">{{ contactInfo.email }}</p>
+    </div>
+  </div>
+</footer>
