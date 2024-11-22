@@ -1,1 +1,15 @@
-<p>testimonials works!</p>
+<section id="testimonials" class="testimonials section">
+  <div class="content max-width-wrapper">
+    <p class="small-subtext text-center">TESTIMONIALS</p>
+    <h2 class="section-title text-center">
+      Our clients' experiences speak<br />
+      volumes. Here's what they have to say.
+    </h2>
+
+    <app-custom-swipper [swipperItems]="testimonials">
+      <ng-template #itemTemplate let-testimonial>
+        <app-testimonial-card [testimonial]="testimonial" />
+      </ng-template>
+    </app-custom-swipper>
+  </div>
+</section>
