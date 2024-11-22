@@ -1,1 +1,21 @@
-<p>why-choose-us works!</p>
+<section id="why-choose-us" class="why-choose-us section bg-light-blue">
+    <div class="content max-width-wrapper">
+      <p class="small-subtext">WHY CHOOSE US</p>
+      
+      <h2 class="section-title">
+        For a clean home, here's why we're your best choice
+      </h2>
+      
+      <div class="features-grid">
+        <div class="feature-item" *ngFor="let item of chooseUsItems">
+          <div class="feature-icon">
+            <i [class]="item.icon"></i>
+          </div>
+          <div class="feature-content">
+            <h3>{{item.title}}</h3>
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
