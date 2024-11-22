@@ -1,3 +1,284 @@
-@use './style/_variables.scss' as *;
-@use './style/_mixins.scss' as *;
-@use './style/_functions.scss' as *;
+@use './styles/_variables.sass' as *
+@use './styles/_mixins.sass' as *
+
+@import 'swiper/css'
+@import 'swiper/css/navigation'
+@import 'swiper/css/pagination'
+
+@import "primeng/resources/themes/lara-light-blue/theme.css"
+@import "primeng/resources/primeng.css"
+@import "primeicons/primeicons.css"
+
+/* Box sizing rules
+@font-face
+    font-family: 'century-gothic'
+    src: url('assets/fonts/Century Gothic.ttf') format('truetype')
+    font-weight: normal
+    font-style: normal
+
+*
+    font-family: "century-gothic", serif
+    box-sizing: border-box
+
+    &::before, &::after
+        box-sizing: border-box
+
+/* Prevent font size inflation
+
+html
+    -moz-text-size-adjust: none
+    -webkit-text-size-adjust: none
+    text-size-adjust: none
+
+/* Remove default margin in favour of better control in authored CSS
+
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd
+    margin-block-end: 0
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed
+
+ul[role='list'], ol[role='list']
+    list-style: none
+
+/* Set core body defaults
+
+body
+    line-height: 1.5
+    padding: 0
+    margin: 0
+//   min-height: 100vh
+
+/* Set shorter line heights on headings and interactive elements
+
+h1, h2, h3, h4, button, input, label
+    line-height: 1.1
+
+/* Balance text wrapping on headings
+
+h1, h2, h3, h4
+    text-wrap: balance
+
+/* A elements that don't have a class get default styles
+
+a:not([class])
+    text-decoration-skip-ink: auto
+    color: currentColor
+
+/* Make images easier to work with
+
+img, picture
+    max-width: 100%
+    display: block
+
+/* Inherit fonts for inputs and buttons
+
+input, button, textarea, select
+    font-family: inherit
+    font-size: inherit
+
+/* Make sure textareas without a rows attribute are not tiny
+
+textarea:not([rows])
+    min-height: 10em
+
+/* Anything that has been anchored to should have extra scroll margin
+
+\:target
+    scroll-margin-block: 5ex
+button
+    cursor: pointer
+
+// UTILITY CLASSES 
+
+.max-width-wrapper
+    max-width: 1400px
+    margin-inline: auto
+
+h1
+    font-family: $primary-font
+    font-weight: 700
+    line-height: 120%
+    letter-spacing: -0.83px
+    font-size: 40px
+
+    @include breakpoint($breakpoint: medium)
+        font-size: 60px
+    @include breakpoint($breakpoint: large)
+        font-size: 70px
+
+h2
+    font-weight: 600
+    line-height: 130%
+    font-size: 25px
+    @include breakpoint($breakpoint: medium)
+        font-size: 30px
+    @include breakpoint($breakpoint: large)
+        font-size: 40px
+
+h3
+    font-weight: 600
+    font-size: 18px
+    @include breakpoint($breakpoint: medium)
+        font-size: 18px
+    @include breakpoint($breakpoint: large)
+        font-size: 22px
+
+.small-subtext
+    text-transform: uppercase
+    letter-spacing: 2.5px
+    font-weight: 700
+    font-size: 14px
+    text-align: center
+    color: $clr-secondary
+
+    @include breakpoint($breakpoint: large)
+        font-size: 16px
+
+.section
+    margin-block: 6rem
+    padding: 1.5rem
+
+    @include breakpoint($breakpoint: medium)
+        padding: 3rem
+
+.section-title
+    text-align: center
+    margin-top: 1rem
+    max-width: 50rem
+    margin-bottom: 5rem
+    margin-inline: auto
+
+.bg-light-blue
+    background-color: $clr-primary-accent
+    padding-block: 4rem
+    padding-bottom: 5rem
+
+.bg-blue
+    background-color: $clr-primary
+    color: white
+
+.btn
+    padding: 1rem 2rem
+    border-radius: 2rem
+    font-weight: bold
+    border: none
+    &-primary
+        background: $clr-primary
+        color: white
+
+    &-secondary
+        background: white
+        color: $clr-primary
+
+// booking system styles 
+.booking-container
+    max-width: 800px
+    margin: 0 auto
+    padding: $spacing-unit * 2
+
+    h1
+        font-size: 2rem
+        font-weight: 600
+        margin-bottom: $spacing-unit * 2
+        text-align: center
+
+.step-form
+    display: flex
+    flex-direction: column
+    gap: $spacing-unit * 1.5
+
+.form-group
+    display: flex
+    flex-direction: column
+    gap: $spacing-unit * 0.5
+
+    label
+        font-size: 0.875rem
+        font-weight: 500
+        text-transform: uppercase
+        color: $text-color
+
+    input, select, textarea
+        padding: $spacing-unit
+        border: 1px solid $border-color
+        border-radius: $border-radius
+        font-size: 1rem
+        transition: border-color $transition-speed
+
+    &:focus
+        outline: none
+        border-color: $primary-color
+
+    &::placeholder
+        color: lighten($text-color, 30%)
+
+    &.has-error
+        input, select, textarea
+            border-color: $error-color
+
+    .error-message
+        color: $error-color
+        font-size: 0.875rem
+        margin-top: $spacing-unit * 0.25
+
+.btn-next, .btn-back
+    padding: $spacing-unit $spacing-unit * 2
+    border-radius: $border-radius
+    font-weight: 500
+    transition: all $transition-speed
+    cursor: pointer
+
+    &:disabled
+        opacity: 0.5
+        cursor: not-allowed
+
+.btn-next
+    background-color: $primary-color
+    color: white
+    border: none
+
+    &:hover:not(:disabled)
+        background-color: darken($primary-color, 10%)
+
+.btn-back
+    background-color: transparent
+    border: 1px solid $border-color
+    color: $text-color
+
+    &:hover:not(:disabled)
+        background-color: darken($background-color, 5%)
+
+.step-indicator
+    display: flex
+    justify-content: center
+    margin-bottom: $spacing-unit * 2
+
+.step
+    display: flex
+    align-items: center
+
+    &:not(:last-child)
+        margin-right: $spacing-unit
+
+    .step-number
+        width: 2rem
+        height: 2rem
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: $border-color
+        color: $text-color
+
+    &.active
+        background-color: $primary-color
+        color: white
+
+    &.completed
+        background-color: $success-color
+        color: white
+
+    .step-label
+        margin-left: $spacing-unit * 0.5
+        font-size: 0.875rem
+        color: $text-color
