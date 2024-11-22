@@ -1,0 +1,20 @@
+<div class="testimonial-card">
+  <div class="quote-mark">
+    <img src="assets/icons/quote.svg" alt="quote" />
+  </div>
+  <p class="quote">{{ testimonial.quote }}</p>
+  <div class="author-info">
+    <!-- <img [src]="testimonial.image" [alt]="testimonial.author" class="author-image" /> -->
+    <!-- <img src="assets/images/profile-3.png" alt="profile" /> -->
+    <img [src]="testimonial.image" alt="profile">
+    <div class="author-details">
+      <h4 class="author-name">{{ testimonial.author }}</h4>
+      <p class="author-role">{{ testimonial.role }}</p>
+      <div class="rating">
+        @for(star of [1,2,3,4,5]; track star) {
+        <span class="star" [class.filled]="star <= testimonial.rating">★</span>
+        }
+      </div>
+    </div>
+  </div>
+</div>
