@@ -1,0 +1,39 @@
+@use '../../../styles/variables' as *
+@use '../../../styles/_mixins.sass' as *
+
+
+section
+  p.text-secondary
+    text-align: center
+    max-width: 70%
+    margin-inline: auto
+
+.accordion
+  margin-top: 5rem
+  max-width: 70%
+  margin-inline: auto
+
+
+// Accordion styles start
+:host ::ng-deep .p-accordion
+  .p-accordion-header
+    .p-accordion-header-link
+      padding: 1.5rem 1rem
+      @include flex($direction: row-reverse, $gap: 1rem)
+      justify-content: space-between
+      border: none
+      border-bottom: 1px solid $line
+      background: none
+      font-weight: bold
+      color: black
+      @include breakpoint($breakpoint: medium)
+        font-size: 18px
+      
+
+  .p-accordion-content
+    border: none
+
+    .topic
+      padding: 0
+      // border-bottom: 1px solid $line
+// Accordion styles end

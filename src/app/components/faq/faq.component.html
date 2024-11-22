@@ -1,1 +1,18 @@
-<p>faq works!</p>
+<section class="home-section section">
+  <div class="content max-width-wrapper">
+    <p class="small-subtext text-center">FAQ</p>
+    <h2 class="section-title text-center">
+      Got a question? Check out what our FAQ
+    </h2>
+    <div class="accordion">
+      <p-accordion [multiple]="true" [activeIndex]="[0]">
+        @for (faq of faqs; track faq) {
+        <p-accordionTab [header]="faq.question">
+          <p class="topic">{{ faq.answer }}</p>
+        </p-accordionTab>
+
+        }
+      </p-accordion>
+    </div>
+  </div>
+</section>
