@@ -1,0 +1,43 @@
+@use '../../../styles/variables' as *
+@use '../../../styles/_mixins.sass' as *
+
+.cta-section
+    height: 32rem
+    border-radius: 10px
+    color: white
+    margin-inline: 1rem
+    @include flex-center()
+    align-items: center
+    flex-direction: column
+    background: radial-gradient(circle at center,#030A12,#0E120B,#001012,#293C27,#000000)
+    animation: gradient-pulse 8s ease-in-out infinite
+
+    @include breakpoint($breakpoint: medium)
+        margin-inline: auto
+    
+
+    .small-subtext
+        color: #d5d3d3
+
+    .section-title
+        margin-bottom: 2rem
+
+    .button-container
+        @include flex-center()
+        mnargin-top: 1rem
+
+@keyframes gradient-pulse
+    0%
+        background-size: 100% 100%
+        background-position: 50% 50%
+        filter: hue-rotate(0deg)
+    50%
+        background-size: 100% 170%
+        background-position: 60% 40%
+    75%
+        background-size: 100% 150%
+        filter: hue-rotate(360deg)
+        background-position: 40% 50%
+    100%
+        background-size: 100% 100%
+        background-position: 50% 50%

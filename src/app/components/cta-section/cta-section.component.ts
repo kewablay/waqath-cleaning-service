@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cta-section',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cta-section.component.html',
   styleUrl: './cta-section.component.sass'
 })
