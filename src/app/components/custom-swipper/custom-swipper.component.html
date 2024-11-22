@@ -1,0 +1,36 @@
+<div class="swipper-list">
+  <swiper-container
+    #swiper
+    [slidesPerView]="1"
+    [spaceBetween]="30"
+    [breakpoints]="swiperBreakpoints"
+  >
+    @for(swipperItem of swipperItems; track swipperItem) {
+    <swiper-slide>
+      <ng-container
+        [ngTemplateOutlet]="itemTemplate || defaultTemplate"
+        [ngTemplateOutletContext]="{ $implicit: swipperItem }"
+      />
+    </swiper-slide>
+
+    }
+  </swiper-container>
+
+
+  <div class="button-group">
+    <p-button
+      icon="pi pi-chevron-left"
+      [rounded]="true"
+      [outlined]="true"
+      [style]="{ color: 'black' }"
+      (onClick)="slidePrev()"
+    />
+    <p-button
+      icon="pi pi-chevron-right"
+      [rounded]="true"
+      [outlined]="true"
+      [style]="{ color: 'black' }"
+      (onClick)="slideNext()"
+    />
+  </div>
+</div>
