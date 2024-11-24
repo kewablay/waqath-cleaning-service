@@ -1,0 +1,68 @@
+<form [formGroup]="preferencesForm" (ngSubmit)="onSubmit()" class="step-form">
+    <div class="input-fields">
+      <div class="form-group-container">
+        <!-- Type of Cleaning Service -->
+        <div class="form-group">
+          <label for="cleaningService">TYPE OF CLEANING SERVICE</label>
+          <p-dropdown
+            formControlName="cleaningService"
+            id="cleaningService"
+            [options]="cleaningServiceOptions"
+            placeholder="--- Select cleaning service ---">
+          </p-dropdown>
+          @if(getErrorMessage('cleaningService')) {
+          <small class="text-warning">{{ getErrorMessage('cleaningService') }}</small>
+          }
+        </div>
+  
+        <!-- Service Frequency -->
+        <div class="form-group">
+          <label for="serviceFrequency">SERVICE FREQUENCY</label>
+          <p-dropdown
+            formControlName="serviceFrequency"
+            id="serviceFrequency"
+            [options]="serviceFrequencyOptions"
+            placeholder="--- Select service frequency ---">
+          </p-dropdown>
+          @if(getErrorMessage('serviceFrequency')) {
+          <small class="text-warning">{{ getErrorMessage('serviceFrequency') }}</small>
+          }
+        </div>
+      </div>
+  
+      <div class="form-group-container">
+        <!-- Preferred Day(s) -->
+        <div class="form-group">
+          <label for="preferredDays">PREFERRED DAY(S)</label>
+          <p-dropdown
+            formControlName="preferredDays"
+            id="preferredDays"
+            [options]="preferredDaysOptions"
+            placeholder="--- Select preferred days ---">
+          </p-dropdown>
+          @if(getErrorMessage('preferredDays')) {
+          <small class="text-warning">{{ getErrorMessage('preferredDays') }}</small>
+          }
+        </div>
+  
+        <!-- Number of Professionals Needed -->
+        <div class="form-group">
+          <label for="professionalsNeeded">NUMBER OF PROFESSIONALS NEEDED</label>
+          <p-dropdown
+            formControlName="professionalsNeeded"
+            id="professionalsNeeded"
+            [options]="professionalsNeededOptions"
+            placeholder="--- Select professionals needed ---">
+          </p-dropdown>
+          @if(getErrorMessage('professionalsNeeded')) {
+          <small class="text-warning">{{ getErrorMessage('professionalsNeeded') }}</small>
+          }
+        </div>
+      </div>
+    </div>
+  
+    <div class="button-group">
+      <button type="submit" pButton label="Next" class="btn-next"></button>
+    </div>
+  </form>
+  
