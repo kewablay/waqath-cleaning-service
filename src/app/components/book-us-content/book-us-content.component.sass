@@ -1,0 +1,18 @@
+@use '../../../styles/variables' as *
+@use '../../../styles/_mixins.sass' as *
+
+
+.book-us-content
+    margin-top: 0rem
+    @include breakpoint($breakpoint: large)
+        margin-inline: 5rem
+    
+    .header 
+        @include flex-between($direction: row, $gap: 2rem )
+
+        .step 
+            min-width: fit-content
+        
+    .body 
+        margin-top: 2rem
+

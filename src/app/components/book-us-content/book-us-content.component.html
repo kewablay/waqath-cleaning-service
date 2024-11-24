@@ -1,0 +1,21 @@
+<section class="section book-us-content">
+  <div class="header">
+    <h2 class="form-title">{{ getStepTitle() }}</h2>
+    <p class="step">Step 1 of 4</p>
+  </div>
+
+  <div class="body">
+    @switch (bookingService.state.step) { @case (1) {
+    <app-personal-info />
+    } @case (2) {
+    <app-preferences />
+    <p>Your preferences</p>
+    } @case (3) {
+    <app-package-selection />
+    <p>Package Selection</p>
+    } @case (4) {
+    <app-booking-final />
+    <p>Booking Final</p>
+    } }
+  </div>
+</section>
