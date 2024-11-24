@@ -1,0 +1,82 @@
+<form [formGroup]="PersonalInfoform" (ngSubmit)="onSubmit()" class="step-form">
+  <div class="input-fields">
+    <div class="form-group-container">
+      <div class="form-group">
+        <label for="fullName">FULL LEGAL NAME</label>
+        <input
+          formControlName="fullName"
+          type="text"
+          pInputText
+          placeholder="Enter your Full name"
+          [class]="{
+            'ng-dirty':
+              PersonalInfoform.get('fullname')?.invalid &&
+              PersonalInfoform.get('fullname')?.touched
+          }"
+        />
+        <!-- Error message -->
+
+        @if(getErrorMessage('fullName')) {
+        <small class="text-warning">{{ getErrorMessage("fullName") }}</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">EMAIL</label>
+        <input
+          pInputText    
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          class="ng-invalid ng-dirty"
+        />
+
+        <!-- Error message -->
+
+        @if(getErrorMessage('email')) {
+        <small class="text-warning">{{ getErrorMessage("email") }}</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="form-group">
+        <label for="phone">CONTACT NUMBER</label>
+        <input
+          pInputText
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          placeholder="Phone Number"
+        />
+
+        <!-- Error message -->
+
+        @if(getErrorMessage('phone')) {
+        <small class="text-warning">{{ getErrorMessage("phone") }}</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="address">DETAILED ADDRESS</label>
+        <input
+          id="address"
+          pInputText
+          type="text"
+          formControlName="address"
+          placeholder="Include street, city, and house/villa number"
+        />
+        <!-- Error message -->
+
+        @if(getErrorMessage('address')) {
+        <small class="text-warning">{{ getErrorMessage("address") }}</small>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button type="submit" class="btn-next">Next</button>
+  </div>
+</form>
