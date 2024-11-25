@@ -34,12 +34,14 @@
         <!-- Preferred Day(s) -->
         <div class="form-group">
           <label for="preferredDays">PREFERRED DAY(S)</label>
-          <p-dropdown
+          <p-multiSelect
             formControlName="preferredDays"
             id="preferredDays"
             [options]="preferredDaysOptions"
+            optionLabel="label"
+            optionValue="value"
             placeholder="--- Select preferred days ---">
-          </p-dropdown>
+          </p-multiSelect>
           @if(getErrorMessage('preferredDays')) {
           <small class="text-warning">{{ getErrorMessage('preferredDays') }}</small>
           }
@@ -62,6 +64,7 @@
     </div>
   
     <div class="button-group">
+      <p-button label="Back" [outlined]="true" severity="secondary" [style]="{'padding': '.9rem'}" (click)="previousStep()" />
       <button type="submit" pButton label="Next" class="btn-next"></button>
     </div>
   </form>
