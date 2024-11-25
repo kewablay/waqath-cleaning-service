@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   contactInfo = {
-    phone: '+33 5 63 44 67 77',
+    phone: '056-166-1615',
     address: '123 Tech Street, Suite 101',
     city: 'Cityville, State, ZIP',
     email: 'Contact@company.com',
@@ -17,20 +17,20 @@ export class FooterComponent {
 
   navigation = {
     about: [
-      { title: 'About us', link: '/about' },
-      { title: 'Blog', link: '/blog' },
-      { title: 'Contact', link: '/contact' },
+      { title: 'About us', link: '#' },
+      { title: 'Blog', link: '#' },
+      { title: 'Contact', link: '#' },
     ],
     social: [
-      { title: 'Instagram', link: 'https://instagram.com' },
-      { title: 'Facebook', link: 'https://facebook.com' },
+      { title: 'Instagram', link: 'https://www.instagram.com/walqath_cleaningservice?igsh=MWVtYWpqcmxjYWY4cA==' },
+      { title: 'Facebook', link: 'https://www.facebook.com/walqathAlhilacleaningservice?mibextid=ZbWKwL' },
       { title: 'X', link: 'https://x.com' },
     ],
   };
 
   contactLinks = [
-    { icon: 'whatsapp', link: 'https://wa.me/33563446777' },
+    { icon: 'whatsapp', link: 'https://wa.me/056-166-1615' },
     { icon: 'telegram', link: 'https://t.me/yourcompany' },
-    { icon: 'gmail', link: 'mailto:contact@company.com' },
+    { icon: 'gmail', link: 'mailto:WalqathCleaningServices@gmail.com' },
   ];
 }
