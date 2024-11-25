@@ -11,6 +11,8 @@ import { BookingService } from '../../services/booking.service';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PaymentMethod } from '../../models/app.model';
 import { DropdownModule } from 'primeng/dropdown';
+import { getFormErrorMessage } from '../../utils/form-util';
+import { ToastService } from '../../services/toast-service/toast.service';
 
 @Component({
   selector: 'app-booking-final',
@@ -32,8 +34,9 @@ export class BookingFinalComponent {
     { label: 'PayPal', value: 'paypal' },
     { label: 'Bank Transfer', value: 'bank-transfer' },
   ];
+  bookingLoading:boolean = false;
 
-  constructor(private fb: FormBuilder, private bookingService: BookingService) {
+  constructor(private fb: FormBuilder, private bookingService: BookingService, private toastService: ToastService) {
     this.bookingFinalForm = this.fb.group({
       specialInstructions: [''],
       paymentMethod: ['', Validators.required],
@@ -42,10 +45,32 @@ export class BookingFinalComponent {
 
   onSubmit() {
     if (this.bookingFinalForm.valid) {
+      this.bookingLoading = true;
       this.bookingService.updateFormData({
         final: this.bookingFinalForm.value,
       });
-      this.bookingService.nextStep();
+      this.bookingService.submitForm().subscribe({
+        next: (response) => {
+          this.bookingLoading = false;
+          console.log('Form submitted:', response);
+          this.toastService.showSuccess('Form Submitted', 'We will contact you soon.');
+          this.bookingService.resetState();
+          
+        },
+        error: (error) => {
+          this.bookingLoading = false;
+          console.error('Error submitting form:', error);
+          this.toastService.showError('Form Submission Failed', 'An error occurred while submitting the form. Please try again.');
+        }
+      })
     }
+  }
+
+  getErrorMessage(controlName: string): string {
+    return getFormErrorMessage(controlName, this.bookingFinalForm);
+  }
+
+  previousStep(): void {
+    this.bookingService.previousStep();
   }
 }
