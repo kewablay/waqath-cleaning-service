@@ -1,1 +1,46 @@
-<p>package-selection works!</p>
+<p class="question" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 2rem;">Will You Provide the Cleaning Tools? (Select one option with its pricing applied):</p>
+<form [formGroup]="packageSelectionForm" (ngSubmit)="onSubmit()">
+    <div class="input-fields">
+        <div class="form-group-container">
+            <div class="flex align-items-center">
+                <p-radioButton 
+                    formControlName="provideTools"
+                    name="provideTools" 
+                    value="yes" 
+                    inputId="yes"
+                    (click)="showPricing()"
+                    />
+                <label for="yes" class="ml-2">
+                    Yes, I'll provide the cleaning tools
+                </label>
+            </div>
+            
+            <div class="flex align-items-center">
+                <p-radioButton 
+                    formControlName="provideTools"
+                    name="provideTools" 
+                    value="no" 
+                    inputId="no"
+                    (click)="showPricing()"
+                    />
+                <label for="no" class="ml-2">
+                    No, Professional should bring their own tools
+                </label>
+            </div>
+        </div>
+        @if(showPricingDropdown) {
+            <p-dropdown
+            [options]="pricingOptions"
+            formControlName="pricing"
+            optionLabel="label"
+            [style]="{'width': '100%'}"
+            placeholder="Select hours and pricing"
+            [showClear]="true"
+          ></p-dropdown>
+            }
+    </div>
+
+    <div class="button-group">
+        <button type="submit" class="btn-next">Next</button>
+      </div>
+</form>
