@@ -30,8 +30,7 @@ import { ToastService } from '../../services/toast-service/toast.service';
 export class BookingFinalComponent {
   bookingFinalForm: FormGroup;
   paymentMethods: PaymentMethod[] = [
-    { label: 'Credit Card', value: 'credit-card' },
-    { label: 'PayPal', value: 'paypal' },
+    { label: 'Cash', value: 'cash' },
     { label: 'Bank Transfer', value: 'bank-transfer' },
   ];
   bookingLoading:boolean = false;
