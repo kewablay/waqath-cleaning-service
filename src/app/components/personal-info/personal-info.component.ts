@@ -29,6 +29,11 @@ export class PersonalInfoComponent {
     });
   }
 
+  ngOnInit(): void {
+    const personalInfoData = this.bookingService.formData$?.personalInfo;
+    this.PersonalInfoform.patchValue(personalInfoData || {})
+  }
+
   onSubmit(): void {
     if (this.PersonalInfoform.valid) {
       this.bookingService.updateFormData({
