@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class BookingService {
   apiUrl = environment.formspreeUrl;
   private readonly initialState: BookingState = {
-    step: 4,
+    step: 1,
     maxSteps: 4,
     formValid: false
   };
