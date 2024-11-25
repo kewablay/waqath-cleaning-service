@@ -25,6 +25,7 @@ export class PreferencesComponent {
     { label: 'Weekly', value: 'weekly' },
     { label: 'Bi-weekly', value: 'bi-weekly' },
     { label: 'Monthly', value: 'monthly' },
+    { label: 'Recurring (Renewable) Cleaning', value: 'recurring cleaning' },
   ];
   preferredDaysOptions = [
     { label: 'Monday', value: 'Monday' },
