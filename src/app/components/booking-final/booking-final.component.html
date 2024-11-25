@@ -1,1 +1,36 @@
-<p>booking-final works!</p>
+<form [formGroup]="bookingFinalForm" (ngSubmit)="onSubmit()">
+    <div class="input-fields">
+
+        <div class="form-group-container">
+            <div class="form-group">
+                <label for="specialInstructions">Special Instructions (Optional)</label>
+                <textarea
+                id="specialInstructions"
+                pInputTextarea
+                formControlName="specialInstructions"
+                
+                placeholder="Enter any special instructions or requests"
+                ></textarea>
+            </div>
+            
+            
+        </div>
+        <div class="form-group-container">
+            <div class="form-group">
+                <label for="paymentMethod">Preferred Payment Method</label>
+                <p-dropdown
+                  id="paymentMethod"
+                  [options]="paymentMethods"
+                  formControlName="paymentMethod"
+                  optionLabel="label"
+                  optionValue="value"
+               
+                  placeholder="Select payment method"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+        </div>
+
+    </div>
+
+</form>
