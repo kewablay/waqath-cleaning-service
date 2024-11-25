@@ -63,7 +63,7 @@
         {{ contactInfo.address }}<br />
         {{ contactInfo.city }}
       </p>
-      <p class="email">{{ contactInfo.email }}</p>
+      <a class="email" [href]="'mailto:' + contactInfo.email">{{ contactInfo.email }}</a>
     </div>
   </div>
 </footer>
