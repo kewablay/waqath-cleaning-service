@@ -4,11 +4,12 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { BookingService } from '../../services/booking.service';
 import { PricingOption } from '../../models/app.model';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-package-selection',
   standalone: true,
-  imports: [ReactiveFormsModule, RadioButtonModule, DropdownModule],
+  imports: [ReactiveFormsModule, RadioButtonModule, DropdownModule, ButtonModule],
   templateUrl: './package-selection.component.html',
   styleUrl: './package-selection.component.sass'
 })
@@ -39,17 +40,30 @@ export class PackageSelectionComponent {
     { label: '7 hours: 235 AED', value: '7 hours: 235 AED' },
     { label: '8 hours: 260 AED', value: '8 hours: 260 AED' }
   ];
+  formValidator(form: FormGroup) {
+    const provideTools = form.get('provideTools')?.value;
+    const pricing = form.get('pricing')?.value;
+    
+    return (provideTools && pricing) ? null : { incomplete: true };
+  }
 
   constructor(private fb: FormBuilder, private bookingService: BookingService) {
     this.packageSelectionForm = this.fb.group({
       provideTools: ['', [Validators.required]],
-      pricing: ['', [Validators.required]],
-  });
+      pricing: ['', [Validators.required]]
+    }, { validators: this.formValidator });
+
+  
 
   // Listen for changes in the provideTools control
   this.packageSelectionForm.get('provideTools')?.valueChanges.subscribe(value => {
     this.showPricing();
   });
+  }
+
+  ngOnInit(): void {
+    const packagesData = this.bookingService.formData$?.package;
+    this.packageSelectionForm.patchValue(packagesData || {})
   }
 
   showPricing() {
@@ -67,7 +81,7 @@ export class PackageSelectionComponent {
     console.log(this.packageSelectionForm.value);
     const packageData = { 
       provideTools: this.packageSelectionForm.get('provideTools')?.value,
-      pricePerHour: this.packageSelectionForm.get('pricing')?.value,
+      pricePerHour: this.packageSelectionForm.get('pricing')?.value.value,
     }
 
     console.log("packageData", packageData);
@@ -75,6 +89,10 @@ export class PackageSelectionComponent {
       package: packageData
     });
     this.bookingService.nextStep();
+  }
+
+  previousStep(): void {
+    this.bookingService.previousStep();
   }
 
 }
