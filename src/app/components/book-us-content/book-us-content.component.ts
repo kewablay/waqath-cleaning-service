@@ -30,4 +30,9 @@ export class BookUsContentComponent {
         return 'Booking Form';
     }
   }
+  
+
+  getStep() {
+    return this.bookingService.state.step;
+  }
 }
