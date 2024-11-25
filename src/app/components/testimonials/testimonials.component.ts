@@ -54,17 +54,16 @@ export class TestimonialsComponent {
       author: 'David Thompson',
       role: 'Marketing Director',
       rating: 5,
-      image: 'assets/images/testimonials/testimonial-4.jpg',
+      image: 'assets/images/profile-4.png',
     },
     {
       id: 5,
       quote:
         'The cleaning team is exceptional at what they do. They use eco-friendly products as requested and always ensure my home is immaculately clean and fresh.',
-      author: 'Lisa Anderson',
+      author: 'Andrews Anderson',
       role: 'Interior Designer',
       rating: 5,
-      image: '/assets/images/testimonials/testimonial-5.jpg',
-    },
+      image: 'assets/images/profile-5.png',},
     {
       id: 6,
       quote:
@@ -72,7 +71,7 @@ export class TestimonialsComponent {
       author: 'James Wilson',
       role: 'Medical Professional',
       rating: 5,
-      image: '/assets/images/testimonials/testimonial-6.jpg',
+      image: 'assets/images/profile-6.png',
     },
   ];
 }

@@ -48,18 +48,18 @@ export class ServicesComponent {
     {
       title: 'Window Cleaning',
       description: 'Crystal clear results for a brighter, more inviting space.',
-      image: 'assets/images/window-cleaning.jpg',
+      image: 'assets/images/window-cleaning.png',
     },
     {
       title: 'Move In/Out Cleaning',
       description:
         'Detailed cleaning service for seamless property transitions.',
-      image: 'assets/images/move-cleaning.jpg',
+      image: 'assets/images/move-in-out-cleaning.png',
     },
     {
       title: 'Office Cleaning',
       description: 'Professional cleaning solutions for productive workspaces.',
-      image: 'assets/images/office-cleaning.jpg',
+      image: 'assets/images/office-cleaning.png',
     },
   ];
  
