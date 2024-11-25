@@ -32,3 +32,14 @@ export type BookingForm = {
     package: PackageDetails;
     final: BookingFinal;
 };
+
+
+export interface PricingOption {
+ value: string;
+  label: string;
+}
+
+export interface PaymentMethod {
+  label: string;
+  value: string;
+}
