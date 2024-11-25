@@ -3,6 +3,7 @@ import { getFormErrorMessage } from '../../utils/form-util';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-preferences',
@@ -40,7 +41,7 @@ export class PreferencesComponent {
     { label: '4 Professionals', value: 4 },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private bookingService: BookingService) {
     this.preferencesForm = this.fb.group({
       cleaningService: ['', Validators.required],
       serviceFrequency: ['', Validators.required],
@@ -53,6 +54,10 @@ export class PreferencesComponent {
     if (this.preferencesForm.valid) {
       // Handle valid form submission
       console.log('Preferences submitted:', this.preferencesForm.value);
+      this.bookingService.updateFormData({
+        preferences: this.preferencesForm.value,
+      });
+      this.bookingService.nextStep();
     } else {
       this.preferencesForm.markAllAsTouched();
     }
