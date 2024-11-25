@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { BookingService } from '../../services/booking.service';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @Component({
   selector: 'app-preferences',
   standalone: true,
-  imports: [ReactiveFormsModule, DropdownModule, ButtonModule],
+  imports: [ReactiveFormsModule, DropdownModule, ButtonModule, MultiSelectModule],
   templateUrl: './preferences.component.html',
   styleUrl: './preferences.component.sass',
 })
@@ -26,13 +27,13 @@ export class PreferencesComponent {
     { label: 'Monthly', value: 'monthly' },
   ];
   preferredDaysOptions = [
-    { label: 'Monday', value: 'monday' },
-    { label: 'Tuesday', value: 'tuesday' },
-    { label: 'Wednesday', value: 'wednesday' },
-    { label: 'Thursday', value: 'thursday' },
-    { label: 'Friday', value: 'friday' },
-    { label: 'Saturday', value: 'saturday' },
-    { label: 'Sunday', value: 'sunday' },
+    { label: 'Monday', value: 'Monday' },
+    { label: 'Tuesday', value: 'Tuesday' },
+    { label: 'Wednesday', value: 'Wednesday' },
+    { label: 'Thursday', value: 'Thursday' },
+    { label: 'Friday', value: 'Friday' },
+    { label: 'Saturday', value: 'Saturday' },
+    { label: 'Sunday', value: 'Sunday' }
   ];
   professionalsNeededOptions = [
     { label: '1 Professional', value: 1 },
@@ -65,5 +66,9 @@ export class PreferencesComponent {
 
   getErrorMessage(controlName: string): string {
     return getFormErrorMessage(controlName, this.preferencesForm);
+  }
+
+  previousStep(): void {
+    this.bookingService.previousStep();
   }
 }
