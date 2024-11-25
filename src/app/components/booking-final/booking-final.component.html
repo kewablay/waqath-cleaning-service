@@ -1,36 +1,47 @@
 <form [formGroup]="bookingFinalForm" (ngSubmit)="onSubmit()">
-    <div class="input-fields">
-
-        <div class="form-group-container">
-            <div class="form-group">
-                <label for="specialInstructions">Special Instructions (Optional)</label>
-                <textarea
-                id="specialInstructions"
-                pInputTextarea
-                formControlName="specialInstructions"
-                
-                placeholder="Enter any special instructions or requests"
-                ></textarea>
-            </div>
-            
-            
-        </div>
-        <div class="form-group-container">
-            <div class="form-group">
-                <label for="paymentMethod">Preferred Payment Method</label>
-                <p-dropdown
-                  id="paymentMethod"
-                  [options]="paymentMethods"
-                  formControlName="paymentMethod"
-                  optionLabel="label"
-                  optionValue="value"
-               
-                  placeholder="Select payment method"
-                  [showClear]="true"
-                ></p-dropdown>
-              </div>
-        </div>
-
+  <div class="input-fields">
+    <div class="form-group-container">
+      <div class="form-group">
+        <label for="specialInstructions">Special Instructions (Optional)</label>
+        <textarea
+          id="specialInstructions"
+          pInputTextarea
+          formControlName="specialInstructions"
+          placeholder="Enter any special instructions or requests"
+        ></textarea>
+      </div>
     </div>
+    <div class="form-group-container">
+      <div class="form-group">
+        <label for="paymentMethod">Preferred Payment Method</label>
+        <p-dropdown
+          id="paymentMethod"
+          [options]="paymentMethods"
+          formControlName="paymentMethod"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Select payment method"
+          [showClear]="true"
+        ></p-dropdown>
+        <!-- Error message -->
 
+        @if(getErrorMessage('paymentMethod')) {
+        <small class="text-warning">{{
+          getErrorMessage("paymentMethod")
+        }}</small>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <p-button label="Back" [outlined]="true" severity="secondary" [style]="{'padding': '.9rem'}" (click)="previousStep()" />
+    <button
+      type="submit"
+      pButton
+      label="Submit Booking"
+      class="btn-next"
+      [loading]="bookingLoading"
+    ></button>
+  </div>
 </form>
