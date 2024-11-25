@@ -41,6 +41,7 @@
     </div>
 
     <div class="button-group">
-        <button type="submit" class="btn-next">Next</button>
+        <p-button label="Back" [outlined]="true" severity="secondary" [style]="{'padding': '.9rem'}" (click)="previousStep()" />
+        <button pButton type="submit" class="btn-next"   [disabled]="!packageSelectionForm.valid">Next</button>
       </div>
 </form>
