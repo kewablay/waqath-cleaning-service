@@ -1,11 +1,11 @@
 <nav>
   <div class="max-width-wrapper">
-    <div class="logo" routerLink="/" >
+    <div class="logo" routerLink="/">
       <img src="assets/images/logo.svg" alt="logo" />
     </div>
 
-    <button class="menu">
-        <img src="assets/icons/menu.svg" alt="menu">
+    <button class="menu" (click)="sidebarVisible = true">
+      <img src="assets/icons/menu.svg" alt="menu" />
     </button>
 
     <div class="nav-links">
@@ -15,7 +15,21 @@
       <a class="link" href="#testimonials">Testimonials</a>
       <a class="link" href="#footer">Contact</a>
     </div>
-
-
   </div>
 </nav>
+
+<!-- sidebar -->
+<p-sidebar [(visible)]="sidebarVisible">
+  <ng-template pTemplate="header">
+    <div class="logo" routerLink="/" (click)="sidebarVisible = false">
+      <img src="assets/images/logo.svg" alt="logo" />
+    </div>
+  </ng-template>
+  <div class="nav-links">
+    <a class="link" (click)="navigateToSection('')">Home</a>
+    <a class="link" (click)="navigateToSection('services')">Services</a>
+    <a class="link" (click)="navigateToSection('faq')">Faq</a>
+    <a class="link" (click)="navigateToSection('testimonials')">Testimonials</a>
+    <a class="link" (click)="navigateToSection('footer')">Contact</a>
+  </div>
+</p-sidebar>
