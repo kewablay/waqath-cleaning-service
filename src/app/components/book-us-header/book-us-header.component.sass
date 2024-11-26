@@ -4,7 +4,6 @@
 .book-us-header
     height: 30rem
     background-color: #000
-    border-radius: 10px
     margin-top: 1rem
     @include flex-center()
     align-items: center
@@ -13,7 +12,8 @@
     padding: 1.5rem
     position: relative
     overflow: hidden
-
+    @include breakpoint($breakpoint: xlarge)
+        border-radius: 10px
     &::before
         content: ''
         position: absolute
