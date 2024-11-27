@@ -26,10 +26,10 @@
     </div>
   </ng-template>
   <div class="nav-links">
-    <a class="link" (click)="navigateToSection('')">Home</a>
-    <a class="link" (click)="navigateToSection('services')">Services</a>
-    <a class="link" (click)="navigateToSection('faq')">Faq</a>
-    <a class="link" (click)="navigateToSection('testimonials')">Testimonials</a>
-    <a class="link" (click)="navigateToSection('footer')">Contact</a>
+    <a class="link" routerLink="/" (click)="navigateToSection('')">Home</a>
+    <a class="link" routerLink="/" (click)="navigateToSection('services')">Services</a>
+    <a class="link" routerLink="/" (click)="navigateToSection('faq')">Faq</a>
+    <a class="link" routerLink="/" (click)="navigateToSection('testimonials')">Testimonials</a>
+    <a class="link" routerLink="/" (click)="navigateToSection('footer')">Contact</a>
   </div>
 </p-sidebar>
